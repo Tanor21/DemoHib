@@ -13,10 +13,12 @@ public class App
 {
     public static void main( String[] args )
     {
-        Alien tanor = new Alien();
-        tanor.setAid(103);
-        tanor.setAname("Youssef");
-        tanor.setColor("Yellow");
+        //Alien tanor = new Alien();
+        //tanor.setAid(103);
+        //tanor.setAname("Youssef");
+        //tanor.setColor("Yellow");
+    	
+    	Alien tanor = null;
         
         Configuration con = new Configuration().configure().addAnnotatedClass(Alien.class);
         
@@ -28,8 +30,12 @@ public class App
         
         Transaction tx = session.beginTransaction(); 
         
-        session.save(tanor);
+        //session.save(tanor); // NB: to save the object using hibernate
+        
+        tanor = (Alien) session.get(Alien.class, 101); // NB: to fetch the data from database using hibernate
         
         tx.commit();
+        
+        System.out.println(tanor);
     }
 }
