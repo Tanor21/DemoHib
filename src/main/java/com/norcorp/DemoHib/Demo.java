@@ -15,7 +15,9 @@ public class Demo {
 		s.setName("Tanor");
 		s.setRollno(1);
 		s.setMarks(90);
+		
 		s.getLaptop().add(laptop);
+		laptop.getStudent().add(s);
 		
 		
 		Configuration con = new Configuration().configure().addAnnotatedClass(Student.class).addAnnotatedClass(Laptop.class);
